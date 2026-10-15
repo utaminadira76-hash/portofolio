@@ -1,8 +1,19 @@
 {
   "version": 2,
-  "framework": "laravel",
+  "outputDirectory": "public",
+  "functions": {
+    "api/index.php": {
+      "runtime": "vercel-php@0.9.0"
+    }
+  },
   "routes": [
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/public/index.php" }
+    {
+      "src": "/build/(.*)",
+      "dest": "/public/build/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/api/index.php"
+    }
   ]
 }
